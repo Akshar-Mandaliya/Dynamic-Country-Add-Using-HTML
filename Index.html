@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Iterative Code</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            padding: 10px;
+            margin: 5px 0;
+            background: #f9f9f9;
+            border-left: 5px solid #4CAF50;
+            border-radius: 5px;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #4CAF50;
+            color: white;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Dynamic List of Countries</h1>
+        <p>Adding items dynamically using HTML, CSS, and JavaScript</p>
+    </header>
+    <main>
+        <h2>My Favorite Countries:</h2>
+        <ul id="country-list">
+            
+        </ul>
+        <input type="text" id="newCountry" placeholder="Add a new country" />
+        <button id="addButton">Add Country</button>
+    </main>
+    <footer>
+        <p>&copy; 2024 World Iterative Example</p>
+    </footer>
+    <script>
+        const countries = ["Japan", "Canada", "Australia"]; // Initial list of countries
+        const countryList = document.getElementById('country-list');
+        const addButton = document.getElementById('addButton');
+        const newCountry = document.getElementById('newCountry')
+      
+        function renderList() {
+            countryList.innerHTML = ''; // Clear the list
+            countries.forEach(country => {
+                const li = document.createElement('li');
+                li.textContent = country;
+                countryList.appendChild(li);
+            });
+        }
+
+        
+        addButton.addEventListener('click', () => {
+            const country = newCountry.value.trim();
+            if (country) {
+                countries.push(country);
+                newCountry.value = '';
+                renderList();
+            }
+        });
+        renderList();
+    </script>
+</body>
+</html>
